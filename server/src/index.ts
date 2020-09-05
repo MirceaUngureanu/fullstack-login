@@ -1,14 +1,19 @@
 import { MikroORM } from "@mikro-orm/core"
-import { __prod__ } from "./constant";
+import { Post } from "./entities/Post";
+import microConfig from "./mikro-orm.config"
 
 const main = async () => {
-    const orm = await MikroORM.init({
-        entities: [],
-        dbName: 'content_board',
-        user: 'mircea',
-        type: 'postgresql',
-        debug: !__prod__
-    })
+    // connect ot db
+    const orm = await MikroORM.init(microConfig)
+    // run schema migrations
+    await orm.getMigrator().up()
+    // run sql
+    const post = orm.em.create(Post, { title: 'my first post' })
+    await orm.em.persistAndFlush(post)
+
+    // check insertions
+    // const posts = await orm.em.find(Post, {})
+    // console.log(posts)
 }
 
 main()
