@@ -26,7 +26,7 @@ const main = async () => {
     apolloServer.applyMiddleware({ app })
 
     app.listen(4000, () => {
-        console.log('server stated on http://localhost:4000')
+        console.log('server stated on http://localhost:4000 and dashboard at http://localhost:4000/graphql')
     })
 
     // run sql
