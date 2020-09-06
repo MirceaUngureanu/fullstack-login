@@ -1,1 +1,1 @@
-// Object Relational Mapping (ORM) or data-mapper
+- An ORM (Object Relational Mapper) is the layer that sits between your database and your application. ... An ORM is the magic layer that transforms data in the form of objects into relational data that can be stored in a database and vice versa.
