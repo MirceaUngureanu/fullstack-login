@@ -1,11 +1,9 @@
 import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
 import { Field, ObjectType } from "type-graphql";
 
-// Decorators, which we can stack
-// turn class into graphql type
 @ObjectType()
 @Entity()
-export class Post {
+export class User {
     @Field()
     @PrimaryKey()
     id!: number;
@@ -18,9 +16,11 @@ export class Post {
     @Property({ type: 'date', onUpdate: () => new Date() })
     updatedAt = new Date();
 
-    // by adding the field we expose it to graphql schema
-    // by commenting out the field we can hide it, byt still save to DB
     @Field()
+    @Property({ type: 'text', unique: true })
+    username!: string;
+
+    // the password column is not exposed to our graphql resolvers
     @Property({ type: 'text' })
-    title!: string;
+    password!: string;
 }
