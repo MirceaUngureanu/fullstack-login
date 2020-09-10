@@ -12,3 +12,6 @@ Redis is an in-memory data structure store which can be used as a database, a ca
 
 Implement tslint/eslint
 TSLint is a linter that can only be used for TypeScript, while ESLint supports both JavaScript and TypeScript. ... For that reason, I would recommend using ESLint for linting TypeScript projects.
+
+Next/typescript
+- pages neede default export for API routes
