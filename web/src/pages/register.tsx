@@ -4,6 +4,8 @@ import { Box, Button } from "@chakra-ui/core";
 import Wrapper from "../components/Wrapper"
 import { InputField } from "../components/InputField"
 import { useRegisterMutation } from "../generated/graphql";
+import { toErrorMap } from "../ultils/toErrorMap";
+import { useRouter } from "next/router";
 
 interface registerProps {
 
@@ -11,6 +13,7 @@ interface registerProps {
 
 
 const Register: React.FC<registerProps> = ({}) => {
+    const router = useRouter()
     const [ {}, register ] = useRegisterMutation()
 
     return (
@@ -20,9 +23,10 @@ const Register: React.FC<registerProps> = ({}) => {
                 onSubmit={ async (values, {setErrors}) => {
                     const response = await register(values)
                     if (response.data?.register.errors) {
-                        setErrors({
-                            username: "Hey, I'm an error"
-                        })
+                        setErrors(toErrorMap(response.data.register.errors))
+                    } else if (response.data?.register.user) {
+                        // worked
+                        await router.push("/")
                     }
                 } }
             >
