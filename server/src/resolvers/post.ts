@@ -2,8 +2,6 @@ import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql"
 import { Post } from "../entities/Post";
 import { MyContext } from "../types";
 
-const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms))
-
 // we decorate the class with Resolver
 @Resolver()
 export class PostResolver {
