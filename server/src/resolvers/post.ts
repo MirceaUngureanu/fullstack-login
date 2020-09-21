@@ -2,6 +2,8 @@ import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql"
 import { Post } from "../entities/Post";
 import { MyContext } from "../types";
 
+const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms))
+
 // we decorate the class with Resolver
 @Resolver()
 export class PostResolver {
@@ -18,9 +20,11 @@ export class PostResolver {
 
     // Read
     @Query(() => [ Post ])
-    posts(
+    async posts(
         @Ctx() { em }: MyContext
     ): Promise<Post[]> {
+        // use in testing to slow server
+        // await sleep(3000)
         return em.find(Post, {})
     }
 
