@@ -15,3 +15,6 @@ TSLint is a linter that can only be used for TypeScript, while ESLint supports b
 
 Next/typescript
 - pages neede default export for API routes
+
+Forgot email flow
+Forgot password => put in email => if exits will send email link to reset password => check in console of backend for email ink
