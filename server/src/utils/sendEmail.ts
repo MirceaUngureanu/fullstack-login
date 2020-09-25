@@ -1,6 +1,5 @@
 "use strict";
 import nodemailer from "nodemailer";
-import { TEST_NODEMAILER_PASS, TEST_NODEMAILER_USE } from "../constant";
 
 // async..await is not allowed in global scope, must use a wrapper
 export async function sendEmail(to: string, html: string) {
@@ -16,8 +15,8 @@ export async function sendEmail(to: string, html: string) {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: TEST_NODEMAILER_USE, // generated ethereal user
-            pass: TEST_NODEMAILER_PASS, // generated ethereal password
+            user: ***REMOVED***, // generated ethereal user
+            pass: ***REMOVED***, // generated ethereal password
         },
     });
 
