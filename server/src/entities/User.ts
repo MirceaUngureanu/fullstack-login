@@ -20,6 +20,10 @@ export class User {
     @Property({ type: 'text', unique: true })
     username!: string;
 
+    @Field()
+    @Property({ type: 'text', unique: true })
+    email!: string;
+
     // the password column is not exposed to our graphql resolvers
     @Property({ type: 'text' })
     password!: string;

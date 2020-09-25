@@ -16,6 +16,7 @@ import cors from "cors"
 const main = async () => {
     // connect ot db
     const orm = await MikroORM.init(microConfig)
+    // await orm.em.nativeDelete(User, {})
     // run schema migrations
     await orm.getMigrator().up()
 
