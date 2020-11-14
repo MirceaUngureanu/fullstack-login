@@ -1,6 +1,7 @@
 # Fullstack login implementation
 
 #### Stack
+
 Server
 - mikro-orm
 - PostgreSQL
@@ -10,6 +11,7 @@ Server
 - Redis
 - GraphQL
 - uuid
+
 Web
 - Chakra UI
 - Urql
