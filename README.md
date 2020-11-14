@@ -1,7 +1,5 @@
 # Fullstack login implementation
 
-#### Stack
-
 Server
 - mikro-orm
 - PostgreSQL
